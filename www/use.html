@@ -1,0 +1,59 @@
+<!doctype html>
+<html>
+<head>
+  <meta charset="utf-8">
+  <title>Political Representation in R</title>
+  <meta name="viewport" content="width=device-width; initial-scale=1; maximum-scale=1">
+  <link rel="stylesheet" href="responsive.css" type="text/css" />
+</head>
+
+<body>
+  <header>
+    <nav>
+      <a href="#" id="menu-icon"></a>
+      <ul>
+        <li><a href="index.html">Home</a></li>
+        <li><a href="irs.html">IRS</a></li>
+        <li><a href="installation.html">Installation</a></li>
+        <li><a href="use.html" class="current">Use</a></li>
+        <li><a href="https://r-forge.r-project.org/projects/polrep/">Development</a></li>
+      </ul>
+    </nav>
+  </header>
+<section>
+<h1>Political Representation in R</h1>
+<h2 class="top">General Note on Using the Functions</h2>
+<p>Almost all measures in this package require two vectors as input, one for the population (citizens) and one for the representatives (legislators). These vectors should be in the form of frequency vectors, that is giving the number of observations at each position. In the following I refer to these as Z (for the citizens or population) and R (for the representatives or legislators).<br><br>
+The helper functions <i>collapse</i> and <i>expand</i> from the suggested package <a href="http://agrmt.r-forge.r-project.org/">agrmt</a> can be used to create frequency vectors.<br><br>
+<b>At this stage, please refer to the help files in R</b> for further details on the different measures of political representation.</p>
+
+<h2 class="top">Individual Representation Scores</h2>
+<p>Calculates individual representation scores. Use: <kbd>irs(Z,R)</kbd> for continuous data and <kbd>irs.cat(Z,R)</kbd> for categorical data. Using <kbd>collapse()</kbd> and then <kbd>irs.cat()</kbd> is significantly faster than running <kbd>irs()</kbd> if you have categorical data.</p>
+
+<h2 class="top">Gallagher index</h2>
+<p>The Gallagher index of least squares is available as <kbd>Gallagher(Z,R)</kbd>. Use <kbd>GallagherInv(Z,R)</kbd> to have the values inverted so that higher values stand for greater proportionality.</p>
+
+<h2 class="top">Farina index</h2>
+<p>Calculates the Farina index or cosine proportionality measure. Use: <kbd>Farina(Z,R)</kbd>.</p>
+
+<h2 class="top">Rose index</h2>
+<p>The Rose index is 1-LHI. Higher values stand for greater proportionality. Use: <kbd>Rose(Z,R)</kbd></p>
+
+<h2 class="top">Rae index</h2>
+<p>Use: <kbd>Rae(Z,R)</kbd>; or <kbd>RaeInv(Z,R)</kbd> to have the values inverted to give higher values for greater proportionality.</p>
+
+<h2 class="top">Sainte-Lagu&euml;</h2>
+<p>Use: <kbd>StLague(Z,R)</kbd><br><br>The inverted Sainte-Lagu&euml; is also available: <kbd>StLagueInv(Z,R)</kbd></p>
+
+<h2 class="top">Effective Number of Groups</h2>
+<p>Uses the Laakso and Taagepera approach to the effective number of parties. Use: <kbd>neff(x)</kbd>.<br><br>
+The alternative (rarely used) measure, based on the product is available as <kbd>neff.1(x)</kbd>.<br><br>The effective number of groups (parties) with incomplete data is also implemented. Make sure the residual category is last in the frequency vector. Use: <kbd>neffIncomp(x)</kbd>.</p>
+
+<h2 class="top">Heterogeneity</h2>
+<p>Fearon's index of heterogeneity, corresponds to the Herfindahl index. Use: <kbd>H(x)</kbd></p>
+
+<h2 class="top">Others</h2>
+<p>There are other measures included, many of which more conceptual rather than in actual use (this applies to the functions with cryptic names like scoreA, scoreB, etc. At this stage of development, refer to the built-in documentation for further information. More measures (=functions) might still be added. At this stage, the package offers a workable (and updated) alternative to the proportionality() function in the <a href="https://github.com/danielmarcelino/SciencesPo/">SciencesPo</a> package (of which I was not aware until recently).</p>
+<p class="small">Last update 6 January 2023</p>
+</section>
+</body></html>
